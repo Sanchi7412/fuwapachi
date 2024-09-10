@@ -20,6 +20,21 @@ body {
 	/* font-family: Arial, Helvetica, sans-serif; */
 }
 
+footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	padding-bottom: 2%;
+	width: 100%;
+}
+
+.footer-inner {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+}
+
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;
@@ -30,12 +45,14 @@ body {
 
 .item {
 	display: block;
-	width: 70px;
-	height: 70px;
+	width: 120px;
+	height: 120px;
 	border-radius: 100%;
 	box-shadow: 0px 0px 15px 0px rgba(74, 182, 255, 0.6) inset;
 	-webkit-box-shadow: 0px 0px 15px 0px rgba(151, 255, 246, 0.6) inset;
 	position: relative;
+	font-size: small;
+	text-align: center;
 }
 
 .item:after {
@@ -104,8 +121,8 @@ body {
 }
 
 .move {
-	animation: move 5s cubic-bezier(0.47, 0, 0.745, 0.715) 0s infinite normal;
-	-webkit-animation: move 5s cubic-bezier(0.47, 0, 0.745, 0.715) 0s infinite
+	animation: move 10s cubic-bezier(0.47, 0, 0.745, 0.715) 0s infinite normal;
+	-webkit-animation: move 15s cubic-bezier(0.47, 0, 0.745, 0.715) 0s infinite
 		normal;
 
 	position: absolute;
