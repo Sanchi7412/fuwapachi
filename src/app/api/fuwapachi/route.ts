@@ -3,7 +3,6 @@ import { PrismaClient, bubble } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export async function GET() {
-	// todoテーブルから全件取得
 	const bubbles: bubble[] = await prisma.bubble.findMany();
 	return Response.json(bubbles);
 }

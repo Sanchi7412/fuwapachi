@@ -8,6 +8,12 @@ export default function Home() {
   const [inputValue, setInputValue] = useState<string | null>(null);
   const [bubbles, setBubbles] = useState<bubble[]>([]);
 
+  const wait = async (ms: any) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    })
+  }
+
   useEffect(() => {
     const getBubble = async () => {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/fuwapachi`);
@@ -24,7 +30,7 @@ export default function Home() {
         <h1>fuwapachi 工事中...</h1>
 
         {bubbles.map((bubble) => (
-          <div key={bubble.id} className="move">
+          <div key={bubble.id} className="move" style={{ left: `${Math.random() * 100}%` }}>
             <div className="item shake" onClick={async () => {
               const response = await fetch(
                 `${process.env.NEXT_PUBLIC_API_URL}/fuwapachi/${bubble.id}`,
