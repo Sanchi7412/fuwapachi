@@ -3,25 +3,129 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #210069;
+	--foreground: #bababa;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	color: var(--foreground);
+	background: var(--background);
+	/* font-family: Arial, Helvetica, sans-serif; */
+}
+
+footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	padding-bottom: 2%;
+	width: 100%;
+}
+
+.footer-inner {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+/* シャボン玉CSS */
+
+.item {
+	display: block;
+	width: 120px;
+	height: 120px;
+	border-radius: 100%;
+	box-shadow: 0px 0px 15px 0px rgba(74, 182, 255, 0.6) inset;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(151, 255, 246, 0.6) inset;
+	position: relative;
+	font-size: small;
+	text-align: center;
+}
+
+.item:after {
+	content: '';
+	display: block;
+	width: 20%;
+	height: 20%;
+	border-radius: 100%;
+	background: rgba(195, 255, 253, 0.8);
+	position: absolute;
+	right: 15%;
+	top: 15%;
+	filter: blur(2px);
+	-webkit-filter: blur(2px);
+	transform: rotateZ(45deg) scaleY(0.8);
+	-webkit-transform: rotateZ(45deg) scaleY(0.8);
+}
+
+/*animation Setting*/
+@keyframes shake {
+	0% {
+		transform: translateX(10px);
+	}
+	50% {
+		transform: translateX(-10px);
+	}
+	100% {
+		transform: translateX(10px);
+	}
+}
+@-webkit-keyframes shake {
+	0% {
+		-webkit-transform: translateX(10px);
+	}
+	50% {
+		-webkit-transform: translateX(-10px);
+	}
+	100% {
+		-webkit-transform: translateX(10px);
+	}
+}
+
+/*animation Play*/
+@keyframes move {
+	0% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(-1000px);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes move {
+	0% {
+		-webkit-transform: translateY(0px);
+	}
+	100% {
+		-webkit-transform: translateY(-1000px);
+		opacity: 0;
+	}
+}
+
+.shake {
+	animation: shake 2s ease 0s infinite normal;
+	-webkit-animation: shake 2s ease 0s infinite normal;
+}
+
+.move {
+	animation: move 10s cubic-bezier(0.47, 0, 0.745, 0.715) 0s infinite normal;
+	-webkit-animation: move 15s cubic-bezier(0.47, 0, 0.745, 0.715) 0s infinite
+		normal;
+
+	position: absolute;
+	bottom: -10%;
+	left: 50%;
 }
