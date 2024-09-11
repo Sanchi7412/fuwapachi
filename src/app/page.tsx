@@ -8,12 +8,6 @@ export default function Home() {
   const [inputValue, setInputValue] = useState<string | null>(null);
   const [bubbles, setBubbles] = useState<bubble[]>([]);
 
-  const wait = async (ms: any) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    })
-  }
-
   useEffect(() => {
     const getBubble = async () => {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/fuwapachi`);
